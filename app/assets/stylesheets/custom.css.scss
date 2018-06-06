@@ -20,3 +20,10 @@ $navbar-default-bg: #08088A;
 .center {
   text-align: center;
 }
+
+.jumbotron {
+  color: white;
+  height:100vh;
+  background-image: asset-url('reef.jpg');
+  background-size: cover;
+}
