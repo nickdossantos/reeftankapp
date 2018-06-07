@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(@sensor_value, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :value%>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_field :value, class: "form-control", placeholder: "Temperature", autofocus: true%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :sensor_id%>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_field :sensor_id, class: "form-control", placeholder: "Sensor ID", autofocus: true%>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%=f.submit class:"btn btn-primary btn-lg"%>
+        </div>
+    </div>
+
+  </div>
+</div>
+<%end%>

@@ -1,0 +1,21 @@
+<div class="center jumbotron">
+  <h1>Welcome to the ReefTank APP</h1>
+  <p>Checkout my tanks temperature</p>
+  <%=link_to "Create Custom Reading", new_sensor_value_path, class: "btn btn-default"%>
+</div>
+
+<table class="table">
+  <tr>
+    <th> Value </th>
+    <th> Sensor_id</th>
+    <th> Date</th>
+  </tr>
+
+<% @sensor_values.each do |s| %>
+ <tr>
+   <td><%= s.value %></td>
+   <td><%= s.sensor_id %></td>
+   <td><%= s.created_at %></td>
+ </tr>
+ <%end%>
+</table>

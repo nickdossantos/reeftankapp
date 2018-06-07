@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  sensor: one
+  created_at: 2018-06-06 15:52:46
+
+two:
+  name: MyString
+  sensor: two
+  created_at: 2018-06-06 15:52:46
