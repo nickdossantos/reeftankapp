@@ -10,18 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606200607) do
+ActiveRecord::Schema.define(version: 20180629175401) do
 
   create_table "sensor_values", force: :cascade do |t|
     t.float "value"
     t.integer "sensor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "date"
     t.index ["sensor_id"], name: "index_sensor_values_on_sensor_id"
   end
 
   create_table "sensors", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

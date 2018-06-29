@@ -1,21 +1,27 @@
 <div class="center jumbotron">
   <h1>Welcome to the ReefTank APP</h1>
   <p>Checkout my tanks temperature</p>
-  <%=link_to "Create Custom Reading", new_sensor_value_path, class: "btn btn-default"%>
+  <% if logged_in?%>
+    <%=link_to "Create Custom Reading", new_sensor_value_path, class: "btn btn-default"%>
+  <%end%>
 </div>
 
 <table class="table">
   <tr>
-    <th> Value </th>
-    <th> Sensor_id</th>
-    <th> Date</th>
+    <th> Temp </th>
+    <th> Sensor Id</th>
+    <th> Date </th>
   </tr>
 
 <% @sensor_values.each do |s| %>
  <tr>
    <td><%= s.value %></td>
    <td><%= s.sensor_id %></td>
-   <td><%= s.created_at %></td>
- </tr>
+   <td><%= s.date.strftime("%m/%d/%Y")%> </td>
+   <% if logged_in?%>
+    <td><%= link_to 'Delete', sensor_value_path(s), method: :delete, data: { confirm: 'Are you sure?' } %></td> </tr>
+   <%end%>
  <%end%>
 </table>
+
+<%= line_chart SensorValue.group_by_day(:date, current: false ).average('value') %>

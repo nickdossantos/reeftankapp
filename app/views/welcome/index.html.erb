@@ -3,3 +3,4 @@
   <p>Checkout my tanks temperature</p>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">View Setup</a></p>
 </div>
+<%= line_chart SensorValue.group_by_day(:date, current: false ).average('value') %>
