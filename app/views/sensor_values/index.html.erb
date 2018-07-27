@@ -9,19 +9,18 @@
 <table class="table">
   <tr>
     <th> Temp </th>
-    <th> Sensor Id</th>
+    <th> Sensor</th>
     <th> Date </th>
   </tr>
 
 <% @sensor_values.each do |s| %>
+ <% sensor = Sensor.find(s.sensor_id)%>
  <tr>
    <td><%= s.value %></td>
-   <td><%= s.sensor_id %></td>
+   <td><%= sensor.name%></td>
    <td><%= s.date.strftime("%m/%d/%Y")%> </td>
    <% if logged_in?%>
     <td><%= link_to 'Delete', sensor_value_path(s), method: :delete, data: { confirm: 'Are you sure?' } %></td> </tr>
    <%end%>
  <%end%>
 </table>
-
-<%= line_chart SensorValue.group_by_day(:date, current: false ).average('value') %>

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:sucess] = "Welcome to the Alpha blog #{@user.username}"
+      flash[:sucess] = "Welcome to the ReefTank App #{@user.username}"
       redirect_to sensor_values_path
     else
       render 'new'
@@ -30,6 +30,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(parasm[:id])
 
+  end
+
+  def graphs
+    render 'graphs'
   end
 
   private

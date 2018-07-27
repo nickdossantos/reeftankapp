@@ -20,5 +20,5 @@ class ApplicationController < ActionController::Base
       flash[:danger] = "You must sign logged in to preform that action"
       redirect_to root_path
     end
-  end 
+  end
 end

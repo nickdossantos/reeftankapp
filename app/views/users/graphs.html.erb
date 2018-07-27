@@ -1,0 +1,14 @@
+<div class="center jumbotron">
+  <h1>Graphs & Charts</h1>
+  <p>Checkout my tanks temperature</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">View Setup</a></p>
+</div>
+<%if logged_in?%>
+  <% user = User.find(current_user.id)%>
+  <% Sensor.all.where("user_id = #{user.id}").each do |sensor| %>
+     <h2 class="center"><%= sensor.name %></h2>
+     <%= line_chart sensor.sensor_values.group_by_day(:date, current: false ).average('value') %>
+   <%end%>
+<%else%>
+   <h3>Please Login to see your readings</h3>
+<%end%>

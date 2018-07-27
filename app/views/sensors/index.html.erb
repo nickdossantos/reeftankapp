@@ -1,0 +1,22 @@
+<div class="center jumbotron">
+  <h1>All Sensors</h1>
+</div>
+
+<table class="table">
+  <tr>
+    <th> Sensor id </th>
+    <th> User id </th>
+    <th> Name</th>
+    <th> Created At </th>
+    <th> Delete</th>
+  </tr>
+
+<% @sensors.each do |sensor| %>
+ <tr>
+   <td><%= sensor.id %></td>
+   <td><%= sensor.user_id %></td>
+   <td><%= sensor.name%></td>
+   <td><%= sensor.created_at.strftime("%m/%d/%Y")%> </td>
+   <td><%= link_to 'Delete', sensor_path(sensor), method: :delete, data: { confirm: 'Are you sure? Deleting this sensor will delete all associated readings.' } %></td>
+ <%end%>
+</table>

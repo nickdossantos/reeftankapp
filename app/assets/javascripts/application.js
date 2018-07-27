@@ -12,6 +12,7 @@
 //
 //= require Chart.bundle
 //= require chartkick
+//= require toastr
 //= require jquery_ujs
 //= require jquery
 //= require bootstrap-sprockets

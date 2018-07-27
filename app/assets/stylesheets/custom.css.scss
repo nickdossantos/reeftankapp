@@ -17,6 +17,13 @@ $navbar-default-bg: #08088A;
   text-decoration: none;
 }
 
+.nav.navbar-nav li a{
+    color: white;
+}
+
+.dropdown-menu.black li a{
+    color: black;
+}
 .center {
   text-align: center;
 }

@@ -1,6 +1,9 @@
 <div class="center jumbotron">
   <h1>Welcome to the ReefTank APP</h1>
-  <p>Checkout my tanks temperature</p>
+  <p>Checkout Masters Readings</p>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">View Setup</a></p>
 </div>
-<%= line_chart SensorValue.group_by_day(:date, current: false ).average('value') %>
+<% Sensor.all.where("user_id = 2").each do |sensor| %>
+   <h2 class="center"><%= sensor.name %></h2>
+   <%= line_chart sensor.sensor_values.group_by_day(:date, current: false ).average('value') %>
+ <%end%>

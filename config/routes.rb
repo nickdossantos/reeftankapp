@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     get 'welcome/index'
+    resources :sensors
     resources :sensor_values
     resources :users
     root 'welcome#index'
@@ -8,4 +9,5 @@ Rails.application.routes.draw do
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'
+    get 'graphs', to: 'users#graphs', as: 'users_graphs'
 end

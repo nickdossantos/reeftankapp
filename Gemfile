@@ -36,6 +36,8 @@ gem 'chartkick'
 
 gem 'groupdate'
 
+gem 'toastr-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
