@@ -17,6 +17,18 @@ $navbar-default-bg: #08088A;
   text-decoration: none;
 }
 
+#cur_temp{
+  background-color: white;
+  width: 50%;
+  margin: 2em auto;
+  border-radius: 25px;
+  padding: 25px;
+}
+
+#cur_temp p{
+  color: black;
+}
+
 .nav.navbar-nav li a{
     color: white;
 }
